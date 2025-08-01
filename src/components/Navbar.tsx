@@ -19,7 +19,7 @@ import {
   HOME_PAGE_PATH,
   FEATURES_PAGE_PATH,
   PRICING_PAGE_PATH,
-  DOWNLOAD_PATH_PATH,
+  DOWNLOADS_PAGE_PATH,
   LOGIN_PAGE_PATH,
   SIGNUP_PAGE_PATH,
 } from "@/lib/pathnames";
@@ -41,7 +41,7 @@ const Navbar: FC = () => {
     },
     {
       label: "Download",
-      href: DOWNLOAD_PATH_PATH,
+      href: DOWNLOADS_PAGE_PATH,
     },
   ];
 

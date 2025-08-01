@@ -14,6 +14,9 @@ import ServerIcon from "./ServerIcon";
 import WiFiIcon from "./WiFiIcon";
 import ShieldIcon from "./ShieldIcon";
 import ArrowRightIcon from "./ArrowRightIcon";
+import BoltIcon from "./BoltIcon";
+import StarIcon from "./StarIcon";
+import TickIcon from "./TickIcon";
 
 export {
   SunFilledIcon,
@@ -32,4 +35,7 @@ export {
   WiFiIcon,
   ShieldIcon,
   ArrowRightIcon,
+  BoltIcon,
+  StarIcon,
+  TickIcon,
 };

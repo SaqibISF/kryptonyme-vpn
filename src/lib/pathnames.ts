@@ -4,8 +4,11 @@ export const FEATURES_PAGE_PATH = "/features";
 
 export const PRICING_PAGE_PATH = "/pricing";
 
-export const DOWNLOAD_PATH_PATH = "/download";
+export const DOWNLOADS_PAGE_PATH = "/downloads";
 
 export const LOGIN_PAGE_PATH = "/login";
 
 export const SIGNUP_PAGE_PATH = "/signup";
+
+export const CHECKOUT_PAGE_PATH = (planId: number) =>
+  `/checkout?planId=${planId}`;

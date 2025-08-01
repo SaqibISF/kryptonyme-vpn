@@ -4,6 +4,10 @@ import Section from "@/components/Section";
 import { GlobeIcon, LockIcon, UserNotIcon, VideoPlayerIcon } from "@/icons";
 import WhyKryptonymeSection from "@/components/sections/WhyKryptonymeSection";
 import WorkFlowSection from "@/components/sections/WorkFlowSection";
+import DownloadSection from "@/components/sections/DownloadSection";
+import UsersRemarksSection from "@/components/sections/UsersRemarksSection";
+import PricingSection from "@/components/sections/PricingSection";
+import FAQSection from "@/components/sections/FAQSection";
 
 const HomePage: FC = () => (
   <>
@@ -45,6 +49,14 @@ const HomePage: FC = () => (
     <WhyKryptonymeSection bgDefault />
 
     <WorkFlowSection />
+
+    <PricingSection bgDefault />
+
+    <DownloadSection />
+
+    <UsersRemarksSection bgDefault />
+
+    <FAQSection />
   </>
 );
 
