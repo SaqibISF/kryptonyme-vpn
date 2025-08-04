@@ -10,5 +10,7 @@ export const LOGIN_PAGE_PATH = "/login";
 
 export const SIGNUP_PAGE_PATH = "/signup";
 
+export const FORGOT_PASSWORD_PAGE_PATH = "/forgot-password";
+
 export const CHECKOUT_PAGE_PATH = (planId: number) =>
   `/checkout?planId=${planId}`;

@@ -40,7 +40,7 @@ const Navbar: FC = () => {
       href: PRICING_PAGE_PATH,
     },
     {
-      label: "Download",
+      label: "Downloads",
       href: DOWNLOADS_PAGE_PATH,
     },
   ];

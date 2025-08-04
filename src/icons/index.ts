@@ -1,3 +1,4 @@
+import LogoIcon from "./LogoIcon";
 import SunFilledIcon from "./SunFilledIcon";
 import MoonFilledIcon from "./MoonFilledIcon";
 import LockIcon from "./LockIcon";
@@ -17,8 +18,25 @@ import ArrowRightIcon from "./ArrowRightIcon";
 import BoltIcon from "./BoltIcon";
 import StarIcon from "./StarIcon";
 import TickIcon from "./TickIcon";
+import BanIcon from "./BanIcon";
+import SettingsSlashIcon from "./SettingsSlashIcon";
+import ArrowsRotateIcon from "./ArrowsRotateIcon";
+import InfinityIcon from "./InfinityIcon";
+import TimerIcon from "./TimerIcon";
+import PowerOffIcon from "./PowerOffIcon";
+import DualLocationIcon from "./DualLocationIcon";
+import MultiNodesIcon from "./MultiNodesIcon";
+import DownloadIcon from "./DownloadIcon";
+import WindowsIcon from "./WindowsIcon";
+import AndroidIcon from "./AndroidIcon";
+import AppStoreIcon from "./AppStoreIcon";
+import EnvelopeIcon from "./EnvelopeIcon";
+import AppleICon from "./AppleIcon";
+import GoogleIcon from "./GoogleIcon";
+import UserIcon from "./UserIcon";
 
 export {
+  LogoIcon,
   SunFilledIcon,
   MoonFilledIcon,
   LockIcon,
@@ -38,4 +56,20 @@ export {
   BoltIcon,
   StarIcon,
   TickIcon,
+  BanIcon,
+  SettingsSlashIcon,
+  ArrowsRotateIcon,
+  InfinityIcon,
+  TimerIcon,
+  PowerOffIcon,
+  DualLocationIcon,
+  MultiNodesIcon,
+  DownloadIcon,
+  WindowsIcon,
+  AndroidIcon,
+  AppStoreIcon,
+  EnvelopeIcon,
+  AppleICon,
+  GoogleIcon,
+  UserIcon,
 };
