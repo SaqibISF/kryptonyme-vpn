@@ -1,5 +1,7 @@
 export const REST_API_BASE_URL = process.env.NEXT_PUBLIC_REST_API_BASE_URL!;
 
+export const LOGIN_WITH_GOOGLE_ROUTE = REST_API_BASE_URL + "/login/google";
+export const LOGIN_WITH_APPLE_ROUTE = REST_API_BASE_URL + "/login/apple";
 export const LOGIN_ROUTE = REST_API_BASE_URL + "/login";
 export const SIGNUP_ROUTE = REST_API_BASE_URL + "/signup";
 export const LOGOUT_ROUTE = REST_API_BASE_URL + "/logout";

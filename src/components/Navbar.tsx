@@ -23,12 +23,9 @@ import {
   LOGIN_PAGE_PATH,
   SIGNUP_PAGE_PATH,
 } from "@/lib/pathnames";
-import { usePathname } from "next/navigation";
 import AppLogo from "./AppLogo";
 
-const Navbar: FC = () => {
-  const pathname = usePathname();
-
+const Navbar: FC<{ pathname: string }> = ({ pathname }) => {
   const navItems = [
     { label: "Home", href: HOME_PAGE_PATH },
     {

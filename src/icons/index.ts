@@ -34,6 +34,13 @@ import EnvelopeIcon from "./EnvelopeIcon";
 import AppleICon from "./AppleIcon";
 import GoogleIcon from "./GoogleIcon";
 import UserIcon from "./UserIcon";
+import MenubarIcon from "./MenubarIcon";
+import RightFromBracketIcon from "./RightFromBracketIcon";
+import GraphIcon from "./GraphIcon";
+import CrownIcon from "./CrownIcon";
+import ArrowUpIcon from "./ArrowUpIcon";
+import LaptopIcon from "./LaptopIcon";
+import MobileIcon from "./MobileIcon";
 
 export {
   LogoIcon,
@@ -72,4 +79,11 @@ export {
   AppleICon,
   GoogleIcon,
   UserIcon,
+  MenubarIcon,
+  RightFromBracketIcon,
+  GraphIcon,
+  CrownIcon,
+  ArrowUpIcon,
+  LaptopIcon,
+  MobileIcon,
 };
