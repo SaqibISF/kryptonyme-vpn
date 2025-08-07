@@ -10,7 +10,7 @@ const DashboardLayout: FC<{ children: ReactNode }> = ({ children }) => (
       <Sidebar />
       <div className="flex-grow bg-default-200">
         <DashboardNavbar />
-        <ScrollShadow className="w-full min-h-[calc(100vh-4.0625rem)] px-4 py-8">
+        <ScrollShadow className="w-full h-[calc(100vh-4.0625rem)] px-4 py-8">
           {children}
         </ScrollShadow>
       </div>

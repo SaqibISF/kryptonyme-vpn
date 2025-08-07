@@ -15,6 +15,12 @@ import { useSession } from "next-auth/react";
 export const usePlansState = () =>
   useSelector((state: RootState) => state.plans);
 
+export const usePlan = (id: number) => {
+  const { isPlansLoading, plans } = usePlans();
+  const plan = plans.find((p) => p.id === id);
+  return { isPlansLoading, plan } as const;
+};
+
 export const usePlans = () => {
   const dispatch = useDispatch();
   const { plans, isPlansLoadedOnce } = useSelector(

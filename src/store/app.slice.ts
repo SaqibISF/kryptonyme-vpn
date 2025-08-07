@@ -1,4 +1,4 @@
-import { AppState } from "@/types/app.state";
+import { AppState, BillingAddress } from "@/types/app.state";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const initialState: AppState = {
@@ -6,6 +6,8 @@ const initialState: AppState = {
   isLegalNoticeLoadedOnce: false,
   termsAndConditions: "",
   privacyPolicy: "",
+  isBillingAddressLoadedOnce: false,
+  billingAddress: null,
 };
 
 const appSlice = createSlice({
@@ -27,9 +29,18 @@ const appSlice = createSlice({
       state.termsAndConditions = action.payload.termsAndConditions;
       state.privacyPolicy = action.payload.privacyPolicy;
     },
+
+    setBillingAddress: (
+      state,
+      action: PayloadAction<BillingAddress | null>
+    ) => {
+      state.isBillingAddressLoadedOnce = true;
+      state.billingAddress = action.payload;
+    },
   },
 });
 
-export const { setLogoutModalOpen, setLegalNotes } = appSlice.actions;
+export const { setLogoutModalOpen, setLegalNotes, setBillingAddress } =
+  appSlice.actions;
 
 export default appSlice.reducer;

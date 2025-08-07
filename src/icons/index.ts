@@ -41,6 +41,7 @@ import CrownIcon from "./CrownIcon";
 import ArrowUpIcon from "./ArrowUpIcon";
 import LaptopIcon from "./LaptopIcon";
 import MobileIcon from "./MobileIcon";
+import VerifiedIcon from "./VerifiedIcon";
 
 export {
   LogoIcon,
@@ -86,4 +87,5 @@ export {
   ArrowUpIcon,
   LaptopIcon,
   MobileIcon,
+  VerifiedIcon,
 };

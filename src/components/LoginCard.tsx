@@ -1,6 +1,6 @@
 "use client";
 
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import {
   Button,
   Card,
@@ -13,10 +13,24 @@ import {
 } from "@heroui/react";
 import Input from "./ui/Input";
 import Link from "next/link";
-import { FORGOT_PASSWORD_PAGE_PATH, SIGNUP_PAGE_PATH } from "@/lib/pathnames";
+import {
+  DASHBOARD_PAGE_PATH,
+  FORGOT_PASSWORD_PAGE_PATH,
+  SIGNUP_PAGE_PATH,
+} from "@/lib/pathnames";
 import { AppleICon, EnvelopeIcon, GoogleIcon, LockIcon } from "@/icons";
+import { signIn } from "next-auth/react";
 
 const LoginCard: FC = () => {
+  useEffect(() => {
+    signIn("credentials", {
+      redirectTo: DASHBOARD_PAGE_PATH,
+      id: 2,
+      email: "saqib@gmail.com",
+      name: "Saqib",
+      access_token: "lskjdfkjsciodoicsljdklfjsklfjksdmc",
+    });
+  }, []);
   return (
     <Card as="form" className="p-6 w-full max-w-md">
       <CardHeader className="flex-col gap-y-2">

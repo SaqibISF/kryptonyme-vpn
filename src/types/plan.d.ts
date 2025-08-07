@@ -3,12 +3,11 @@ export type Plan = {
   name: string;
   slug: string;
   description: string;
-  original_price: string;
-  discount_price: string;
-  price: number | string;
+  price: string;
   duration: number;
   duration_unit: string;
   is_best_deal: boolean;
+  paddle_price_id: string;
   created_at: string;
   updated_at: string;
 };
