@@ -1,10 +1,23 @@
 "use client";
 
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import Section, { SectionProps } from "../Section";
-import { Accordion, AccordionItem, Button } from "@heroui/react";
+import {
+  Accordion,
+  AccordionItem,
+  addToast,
+  Alert,
+  Button,
+  Chip,
+} from "@heroui/react";
 import Input from "../ui/Input";
 import Textarea from "../ui/Textarea";
+import { SubmitHandler, useForm } from "react-hook-form";
+import z from "zod";
+import { emailSchema, messageSchema, subjectSchema } from "@/lib/zod-schemas";
+import { zodResolver } from "@hookform/resolvers/zod";
+import axios, { AxiosError } from "axios";
+import { SEND_FEEDBACK_ROUTE } from "@/lib/constants";
 
 const FAQSection: FC<SectionProps> = ({ ...props }) => {
   const faqs = [
@@ -31,6 +44,59 @@ const FAQSection: FC<SectionProps> = ({ ...props }) => {
     },
   ];
 
+  const feedbackSchema = z.object({
+    subject: subjectSchema,
+    email: emailSchema,
+    message: messageSchema,
+  });
+
+  const [successMessage, setSuccessMessage] = useState<string>("");
+
+  const {
+    formState: { errors, isSubmitting },
+    register,
+    handleSubmit,
+    setError,
+    reset,
+  } = useForm<z.infer<typeof feedbackSchema>>({
+    resolver: zodResolver(feedbackSchema),
+    defaultValues: { subject: "", email: "", message: "" },
+  });
+
+  const submit: SubmitHandler<z.infer<typeof feedbackSchema>> = async (
+    values
+  ) => {
+    try {
+      const res = await axios
+        .post<{ status: boolean; message: string }>(
+          SEND_FEEDBACK_ROUTE,
+          values,
+          { headers: { Accept: "application/json" } }
+        )
+        .then((res) => res.data);
+
+      if (res.status) {
+        setSuccessMessage(res.message);
+        addToast({ color: "success", description: res.message });
+        reset();
+      } else {
+        setError("root", { type: "manual", message: res.message });
+        addToast({ color: "danger", description: res.message });
+      }
+    } catch (error) {
+      const errorMessage =
+        error instanceof AxiosError
+          ? error.response
+            ? error.response.data.message
+            : error.message
+          : error instanceof Error
+          ? error.message
+          : "Failed to send feedback";
+      setError("root", { type: "manual", message: errorMessage });
+      addToast({ color: "danger", description: errorMessage });
+    }
+  };
+
   return (
     <Section {...props}>
       <div className="w-full grid lg:grid-cols-3 lg:items-start gap-8">
@@ -50,18 +116,63 @@ const FAQSection: FC<SectionProps> = ({ ...props }) => {
           ))}
         </Accordion>
 
-        <form className="lg:col-span-1 w-full flex flex-col gap-4 order-1 lg:order-2">
-          <span className="px-4 py-2 bg-primary-100/70 text-primary rounded-full lg:self-start self-center">
+        <form
+          onSubmit={handleSubmit(submit)}
+          className="lg:col-span-1 w-full flex flex-col gap-4 order-1 lg:order-2"
+        >
+          <Chip color="primary" size="lg" className="lg:self-start self-center">
             FAQs
-          </span>
-          <Input label="Name" placeholder="Enter your name" type="text" />
+          </Chip>
+
           <Input
+            isRequired
+            label="Subject"
+            placeholder="Enter your subject"
+            type="text"
+            errorMessage={errors.subject?.message}
+            {...register("subject")}
+          />
+
+          <Input
+            isRequired
             label="Email"
             placeholder="Enter your email address"
             type="email"
+            errorMessage={errors.email?.message}
+            {...register("email")}
           />
-          <Textarea label="Question" placeholder="Type here your question" />
-          <Button size="lg" color="primary" className="self-end">
+
+          <Textarea
+            isRequired
+            label="Question"
+            placeholder="Type here your question"
+            errorMessage={errors.message?.message}
+            {...register("message")}
+          />
+
+          {errors.root && (
+            <Alert
+              color="danger"
+              title={errors.root.message}
+              className="text-start"
+            />
+          )}
+
+          {successMessage && (
+            <Alert
+              color="success"
+              title={successMessage}
+              className="text-start"
+            />
+          )}
+
+          <Button
+            type="submit"
+            isLoading={isSubmitting}
+            size="lg"
+            color="primary"
+            className="self-end"
+          >
             Ask Us A Question
           </Button>
         </form>

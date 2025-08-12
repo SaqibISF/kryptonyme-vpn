@@ -152,3 +152,21 @@ export const phoneSchema = z
   .refine((val) => val.replace(/\D/g, "").length >= 10, {
     message: "Phone number must have at least 10 digits",
   });
+
+export const subjectSchema = z
+  .string({
+    error: (issue) =>
+      issue.input == null ? "Subject is required" : "Subject must be a string",
+  })
+  .trim()
+  .min(1, "Subject is required")
+  .max(100, "Subject cannot exceed 100 characters");
+
+export const messageSchema = z
+  .string({
+    error: (issue) =>
+      issue.input == null ? "Message is required" : "Message must be a string",
+  })
+  .trim()
+  .min(1, "Message is required")
+  .max(1000, "Message cannot exceed 1000 characters");

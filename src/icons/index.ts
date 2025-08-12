@@ -42,6 +42,10 @@ import ArrowUpIcon from "./ArrowUpIcon";
 import VerifiedIcon from "./VerifiedIcon";
 import ErrorIcon from "./ErrorIcon";
 import CheckedIcon from "./CheckedIcon";
+import FacebookFIcon from "./FacebookFIcon";
+import TwitterIcon from "./TwitterIcon";
+import InstagramIcon from "./InstagramIcon";
+import LinkedInIcon from "./LinkedInIcon";
 
 export {
   LogoIcon,
@@ -88,4 +92,8 @@ export {
   VerifiedIcon,
   ErrorIcon,
   CheckedIcon,
+  FacebookFIcon,
+  TwitterIcon,
+  InstagramIcon,
+  LinkedInIcon,
 };

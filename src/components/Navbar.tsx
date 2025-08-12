@@ -13,7 +13,7 @@ import { link as linkStyles } from "@heroui/theme";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-// import { ThemeSwitch } from "@/components/ThemeSwitch";
+import { ThemeSwitch } from "@/components/ThemeSwitch";
 
 import {
   HOME_PAGE_PATH,
@@ -50,7 +50,7 @@ const Navbar: FC<{ pathname: string }> = ({ pathname }) => {
       <NavbarContent>
         <NavbarBrand as="li" className="gap-3 max-w-fit">
           <Link href={HOME_PAGE_PATH}>
-            <AppLogo />
+            <AppLogo className="dark:text-white" />
           </Link>
         </NavbarBrand>
       </NavbarContent>
@@ -63,7 +63,7 @@ const Navbar: FC<{ pathname: string }> = ({ pathname }) => {
                   linkStyles({ color: "foreground" }),
                   "data-[active=true]:text-primary data-[active=true]:font-medium border-b-2 border-transparent pb-2 duration-300",
                   pathname === item.href
-                    ? "text-primary border-primary"
+                    ? "text-primary border-primary dark:text-white dark:border-white"
                     : "text-foreground"
                 )}
                 color="foreground"
@@ -78,7 +78,7 @@ const Navbar: FC<{ pathname: string }> = ({ pathname }) => {
 
       <NavbarContent className="flex basis-1/5 sm:basis-full" justify="end">
         <NavbarItem className="flex lg:gap-4 gap-3">
-          {/* <ThemeSwitch /> */}
+          <ThemeSwitch />
 
           <Avatar />
 
