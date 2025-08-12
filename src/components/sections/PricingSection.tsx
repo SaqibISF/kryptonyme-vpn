@@ -101,7 +101,9 @@ const PricingSection: FC<SectionProps> = ({ ...props }) => {
                   >
                     <BoltIcon className="text-primary" />
                   </Button>
-                  <p className="flex-1 text-2xl font-semibold">{plan.name}</p>
+                  <p className="flex-1 text-2xl font-semibold text-start">
+                    {plan.name}
+                  </p>
                   {plan.is_best_deal ? (
                     <Chip className="text-primary bg-[#E2FFE0] rounded-lg">
                       20% Off
@@ -133,7 +135,7 @@ const PricingSection: FC<SectionProps> = ({ ...props }) => {
                   Upgrade Plan
                 </Button>
               </CardHeader>
-              <CardBody className="flex flex-col items-start gap-6">
+              <CardBody className="flex flex-col items-start gap-3">
                 {plan.description.split(",").map((desc, index) => (
                   <div key={desc + index} className="flex gap-2">
                     <TickIcon className="text-primary" />

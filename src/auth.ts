@@ -70,6 +70,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         token.email = user.email;
         token.name = user.name;
         token.access_token = user.access_token;
+        token.rememberMe = user.rememberMe
       }
       return token;
     },

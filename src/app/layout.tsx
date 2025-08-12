@@ -7,6 +7,7 @@ import MainLayout from "@/components/MainLayout";
 const fontSans = Poppins({
   weight: "400",
   variable: "--font-poppins-sans",
+  subsets: ["latin"],
 });
 
 export const viewport: Viewport = {

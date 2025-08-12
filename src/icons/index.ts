@@ -39,9 +39,9 @@ import RightFromBracketIcon from "./RightFromBracketIcon";
 import GraphIcon from "./GraphIcon";
 import CrownIcon from "./CrownIcon";
 import ArrowUpIcon from "./ArrowUpIcon";
-import LaptopIcon from "./LaptopIcon";
-import MobileIcon from "./MobileIcon";
 import VerifiedIcon from "./VerifiedIcon";
+import ErrorIcon from "./ErrorIcon";
+import CheckedIcon from "./CheckedIcon";
 
 export {
   LogoIcon,
@@ -85,7 +85,7 @@ export {
   GraphIcon,
   CrownIcon,
   ArrowUpIcon,
-  LaptopIcon,
-  MobileIcon,
   VerifiedIcon,
+  ErrorIcon,
+  CheckedIcon,
 };

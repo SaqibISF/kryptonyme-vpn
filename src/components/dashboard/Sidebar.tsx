@@ -6,7 +6,6 @@ import { Button, Drawer, DrawerContent } from "@heroui/react";
 import { cn } from "@/lib/utils";
 import {
   DASHBOARD_PAGE_PATH,
-  DEVICES_PATH_PATH,
   HOME_PAGE_PATH,
   MY_PLANS_PATH_PATH,
 } from "@/lib/pathnames";
@@ -14,12 +13,7 @@ import Link from "next/link";
 import { useLogout } from "@/hooks/useLogout";
 import { usePathname } from "next/navigation";
 import { useDrawerContext } from "./DrawerContext";
-import {
-  CrownIcon,
-  GraphIcon,
-  QuestionMarkIcon,
-  RightFromBracketIcon,
-} from "@/icons";
+import { CrownIcon, GraphIcon, RightFromBracketIcon } from "@/icons";
 import AppLogo from "../AppLogo";
 
 const SidebarContent: FC<{ className?: string }> = ({ className }) => {
@@ -37,14 +31,14 @@ const SidebarContent: FC<{ className?: string }> = ({ className }) => {
       name: "My Plans",
       Icon: CrownIcon,
     },
-    {
-      href: DEVICES_PATH_PATH,
-      name: "Devices",
-      Icon: QuestionMarkIcon,
-    },
   ];
   return (
-    <aside className={cn("w-64 px-2 pb-4 bg-default-100 border-r border-divider", className)}>
+    <aside
+      className={cn(
+        "w-64 px-2 pb-4 bg-default-100 border-r border-divider",
+        className
+      )}
+    >
       <ul className="w-full h-full flex flex-col gap-2">
         <li className="pt-4 pb-6">
           <Link href={HOME_PAGE_PATH}>

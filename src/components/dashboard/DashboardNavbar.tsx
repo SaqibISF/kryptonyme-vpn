@@ -7,7 +7,7 @@ import {
   NavbarItem,
 } from "@heroui/navbar";
 
-import { DEVICES_PATH_PATH, MY_PLANS_PATH_PATH } from "@/lib/pathnames";
+import { MY_PLANS_PATH_PATH } from "@/lib/pathnames";
 import { usePathname } from "next/navigation";
 import { Button } from "@heroui/button";
 import { MenubarIcon } from "@/icons";
@@ -16,12 +16,7 @@ import { Avatar, AvatarUser } from "../Avatar";
 
 const DashboardNavbar: FC = () => {
   const pathname = usePathname();
-  const pageTitle =
-    pathname === MY_PLANS_PATH_PATH
-      ? "My Plans"
-      : pathname === DEVICES_PATH_PATH
-      ? "My Plans"
-      : "Dashboard";
+  const pageTitle = pathname === MY_PLANS_PATH_PATH ? "My Plans" : "Dashboard";
 
   const { onOpenChange } = useDrawerContext();
   return (

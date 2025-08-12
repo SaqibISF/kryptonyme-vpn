@@ -39,3 +39,5 @@ export const UPDATE_BILLING_ADDRESS_ROUTE =
   REST_API_BASE_URL + "/billing-address/store";
 
 export const SEND_FEEDBACK_ROUTE = REST_API_BASE_URL + "/feedback/store";
+export const GET_SERVERS_ROUTE = (page: number) =>
+  `${REST_API_BASE_URL}/web/servers?page=${page}`;

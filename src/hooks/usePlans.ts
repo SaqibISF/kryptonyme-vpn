@@ -72,8 +72,8 @@ export const useActivePlan = () => {
     const fetchActivePlan = async () => {
       try {
         if (isActivePlanLoadedOnce) return;
-        const response = await axios
-          .get<{ status: boolean; plan: PurchasedPlan }>(
+        const res = await axios
+          .get<{ status: boolean; message: string; plan: PurchasedPlan }>(
             GET_PURCHASE_ACTIVE_PLAN_ROUTE,
             {
               headers: {
@@ -83,8 +83,10 @@ export const useActivePlan = () => {
             }
           )
           .then((res) => res.data);
-        if (response.status) {
-          dispatch(setActivePlan(response.plan));
+        if (res.status) {
+          dispatch(setActivePlan(res.plan));
+        } else {
+          addToast({ color: "danger", description: res.message });
         }
       } catch (error) {
         const errorMessage =

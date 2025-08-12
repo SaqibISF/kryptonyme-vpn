@@ -24,8 +24,11 @@ import {
   SIGNUP_PAGE_PATH,
 } from "@/lib/pathnames";
 import AppLogo from "./AppLogo";
+import { Avatar } from "./Avatar";
+import { useSession } from "next-auth/react";
 
 const Navbar: FC<{ pathname: string }> = ({ pathname }) => {
+  const { status: sessionStatus } = useSession();
   const navItems = [
     { label: "Home", href: HOME_PAGE_PATH },
     {
@@ -76,16 +79,23 @@ const Navbar: FC<{ pathname: string }> = ({ pathname }) => {
       <NavbarContent className="flex basis-1/5 sm:basis-full" justify="end">
         <NavbarItem className="flex lg:gap-4 gap-3">
           {/* <ThemeSwitch /> */}
-          <Button
-            as={Link}
-            href={
-              pathname === LOGIN_PAGE_PATH ? SIGNUP_PAGE_PATH : LOGIN_PAGE_PATH
-            }
-            color="primary"
-            className="hidden sm:inline-flex"
-          >
-            {pathname === LOGIN_PAGE_PATH ? "Sign Up" : "Login"}
-          </Button>
+
+          <Avatar />
+
+          {sessionStatus === "unauthenticated" && (
+            <Button
+              as={Link}
+              href={
+                pathname === LOGIN_PAGE_PATH
+                  ? SIGNUP_PAGE_PATH
+                  : LOGIN_PAGE_PATH
+              }
+              color="primary"
+              className="hidden sm:inline-flex"
+            >
+              {pathname === LOGIN_PAGE_PATH ? "Sign Up" : "Login"}
+            </Button>
+          )}
         </NavbarItem>
         <NavbarMenuToggle className="lg:hidden" />
       </NavbarContent>

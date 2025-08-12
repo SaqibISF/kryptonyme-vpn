@@ -20,9 +20,9 @@ import { emailSchema } from "@/lib/zod-schemas";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios, { AxiosError } from "axios";
-import { FORGOT_PASSWORD_ROUTE } from "@/lib/constants";
+import { RESENT_EMAIL_VERIFICATION_ROUTE } from "@/lib/constants";
 
-const ForgotPasswordCard: FC = () => {
+const ResendVerificationEmailCard: FC = () => {
   const [successMessage, setSuccessMessage] = useState<string>("");
 
   const schema = z.object({ email: emailSchema });
@@ -42,7 +42,7 @@ const ForgotPasswordCard: FC = () => {
     try {
       const res = await axios
         .post<{ status: boolean; message: string }>(
-          FORGOT_PASSWORD_ROUTE,
+          RESENT_EMAIL_VERIFICATION_ROUTE,
           values
         )
         .then((res) => res.data);
@@ -75,10 +75,9 @@ const ForgotPasswordCard: FC = () => {
       className="p-6 w-full max-w-md"
     >
       <CardHeader className="flex-col gap-y-2">
-        <h1 className="text-2xl font-bold">Forgot Password?</h1>
+        <h1 className="text-2xl font-bold">Resend Verification Link</h1>
         <p className="text-default-500 text-base">
-          Please enter your email we will send you password reset link to your
-          email
+          Enter your email address to receive a new verification link.
         </p>
         {successMessage && (
           <Alert
@@ -125,4 +124,4 @@ const ForgotPasswordCard: FC = () => {
   );
 };
 
-export default ForgotPasswordCard;
+export default ResendVerificationEmailCard;

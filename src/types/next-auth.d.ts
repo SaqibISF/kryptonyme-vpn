@@ -6,6 +6,7 @@ declare module "next-auth" {
     access_token: string;
     name: string;
     email: string;
+    rememberMe?: boolean;
   }
 
   interface JWT {
@@ -13,6 +14,7 @@ declare module "next-auth" {
     access_token: string;
     name: string;
     email: string;
+    rememberMe?: boolean;
   }
 
   interface Session {

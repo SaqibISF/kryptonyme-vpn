@@ -1,7 +1,6 @@
 export type Plan = {
   id: number;
   name: string;
-  slug: string;
   description: string;
   price: string;
   duration: number;
@@ -9,7 +8,6 @@ export type Plan = {
   is_best_deal: boolean;
   paddle_price_id: string;
   created_at: string;
-  updated_at: string;
 };
 
 export type PurchasedPlan = {

@@ -12,9 +12,17 @@ export const SIGNUP_PAGE_PATH = "/signup";
 
 export const FORGOT_PASSWORD_PAGE_PATH = "/forgot-password";
 
+export const RESET_PASSWORD_PAGE_PATH = "/reset-password";
+
+export const RESEND_VERIFICATION_EMAIL_PAGE_PATH = "/resend-verification-email";
+
+export const EMAIL_VERIFICATION_PAGE_PATH = "/email-verification";
+
 export const CHECKOUT_PAGE_PATH = (planId: number) =>
   `/checkout?planId=${planId}`;
 
 export const DASHBOARD_PAGE_PATH = "/dashboard";
 export const MY_PLANS_PATH_PATH = "/dashboard/my-plans";
-export const DEVICES_PATH_PATH = "/dashboard/devices";
+
+export const TERMS_OF_SERVICES_PAGE_PATH = "/terms-of-services";
+export const PRIVACY_POLICY_PAGE_PATH = "/privacy-policy";

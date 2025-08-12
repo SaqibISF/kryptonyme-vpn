@@ -70,7 +70,11 @@ const CheckoutForm: FC<
           firstLine: values.address,
         },
       },
-      customData: { name: values.name, phone: values.phone },
+      customData: {
+        user_id: session?.user.id,
+        name: values.name,
+        phone: values.phone,
+      },
       items: [{ priceId, quantity: 1 }],
     });
   };
