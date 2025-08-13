@@ -1,7 +1,10 @@
+import { Metadata } from "next";
 import React, { FC, Suspense } from "react";
 import Section from "@/components/Section";
 import LoginCard from "@/components/LoginCard";
 import { LogoIcon } from "@/icons";
+
+export const metadata: Metadata = { title: "Log In" };
 
 const LoginPage: FC = () => (
   <Section isHeroSection bgDefault className="gap-y-4">

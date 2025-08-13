@@ -1,24 +1,21 @@
-"use client";
-
-import React, { FC, Suspense } from "react";
+import { Metadata } from "next";
+import React from "react";
 import Section from "@/components/Section";
-import { usePlan } from "@/hooks/usePlans";
-import { notFound, useSearchParams } from "next/navigation";
+import { notFound } from "next/navigation";
 import OrderSummaryCard from "@/components/OrderSummaryCard";
 import CheckoutForm from "@/components/CheckoutForm";
 import { Card, CardBody } from "@heroui/card";
 
-const CheckoutPage: FC = () => {
-  const searchParams = useSearchParams();
-  const planId = searchParams.get("planId");
+export const metadata: Metadata = { title: "Checkout" };
+
+const CheckoutPage = async ({
+  searchParams,
+}: {
+  searchParams: Promise<{ planId: string }>;
+}) => {
+  const { planId } = await searchParams;
 
   if (!planId) {
-    notFound();
-  }
-
-  const { isPlansLoading, plan } = usePlan(+planId);
-
-  if (!isPlansLoading && !plan) {
     notFound();
   }
 
@@ -32,19 +29,13 @@ const CheckoutPage: FC = () => {
       <div className="w-full grid grid-cols-3 items-start gap-4">
         <Card className="p-6 col-span-2">
           <CardBody>
-            <CheckoutForm priceId={plan!.paddle_price_id} />
+            <CheckoutForm planId={+planId} />
           </CardBody>
         </Card>
-        <OrderSummaryCard isPlansLoading={isPlansLoading} plan={plan!} />
+        <OrderSummaryCard planId={+planId} />
       </div>
     </Section>
   );
 };
 
-const Page: FC = () => (
-  <Suspense>
-    <CheckoutPage />
-  </Suspense>
-);
-
-export default Page;
+export default CheckoutPage;

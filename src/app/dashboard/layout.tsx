@@ -1,8 +1,13 @@
+import { Metadata } from "next";
 import React, { FC, ReactNode } from "react";
 import DashboardNavbar from "@/components/dashboard/DashboardNavbar";
 import Sidebar from "@/components/dashboard/Sidebar";
 import { ScrollShadow } from "@heroui/scroll-shadow";
 import { DrawerContextProvider } from "@/components/dashboard/DrawerContext";
+
+export const metadata: Metadata = {
+  title: { default: "Dashboard", template: "%s | Dashboard" },
+};
 
 const DashboardLayout: FC<{ children: ReactNode }> = ({ children }) => (
   <DrawerContextProvider>

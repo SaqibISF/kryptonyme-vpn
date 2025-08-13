@@ -22,10 +22,19 @@ import { cn } from "@/lib/utils";
 import { useBillingAddress } from "@/hooks/useBillingAddress";
 import { useSession } from "next-auth/react";
 import { notFound } from "next/navigation";
+import { usePlan } from "@/hooks/usePlans";
 
-const CheckoutForm: FC<
-  HTMLAttributes<HTMLDivElement> & { priceId: string }
-> = ({ priceId, className, ...props }) => {
+const CheckoutForm: FC<HTMLAttributes<HTMLDivElement> & { planId: number }> = ({
+  planId,
+  className,
+  ...props
+}) => {
+  const { isPlansLoading, plan } = usePlan(planId);
+
+  if (!isPlansLoading && !plan) {
+    notFound();
+  }
+
   const schema = z.object({
     name: nameSchema,
     email: emailSchema,
@@ -75,7 +84,7 @@ const CheckoutForm: FC<
         name: values.name,
         phone: values.phone,
       },
-      items: [{ priceId, quantity: 1 }],
+      items: [{ priceId: plan!.paddle_price_id, quantity: 1 }],
     });
   };
 

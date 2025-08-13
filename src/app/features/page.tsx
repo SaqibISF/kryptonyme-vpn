@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import React, { FC } from "react";
 import Section from "@/components/Section";
 import { Button } from "@heroui/button";
@@ -22,6 +23,8 @@ import {
 } from "@/icons";
 import { Progress } from "@heroui/progress";
 import FAQSection from "@/components/sections/FAQSection";
+
+export const metadata: Metadata = { title: "Features" };
 
 const FeaturesPage: FC = () => (
   <>

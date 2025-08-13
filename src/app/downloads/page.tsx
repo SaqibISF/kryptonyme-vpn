@@ -1,8 +1,11 @@
+import { Metadata } from "next";
 import React, { FC } from "react";
 import Section from "@/components/Section";
 import { Button } from "@heroui/button";
 import AvailableDevicesSection from "@/components/sections/AvailableDevicesSection";
 import FAQSection from "@/components/sections/FAQSection";
+
+export const metadata: Metadata = { title: "Downloads" };
 
 const DownloadPage: FC = () => (
   <>

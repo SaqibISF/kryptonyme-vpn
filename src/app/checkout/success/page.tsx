@@ -1,13 +1,15 @@
-"use client";
-
-import React, { FC } from "react";
+import { Metadata } from "next";
+import React from "react";
 import VerifiedIcon from "@/icons/VerifiedIcon";
 import Link from "next/link";
-import { Alert, Button } from "@heroui/react";
+import { Button } from "@heroui/button";
+import { Alert } from "@heroui/alert";
 import Section from "@/components/Section";
 import { DASHBOARD_PAGE_PATH } from "@/lib/pathnames";
 
-const PaymentSuccessPage: FC = () => (
+export const metadata: Metadata = { title: "Payment Successful" };
+
+const PaymentSuccessPage = () => (
   <Section isHeroSection className="gap-y-4">
     <VerifiedIcon className="size-48 text-green-500" />
     <h1 className="text-3xl font-semibold text-gray-900">Payment Successful</h1>

@@ -1,10 +1,13 @@
+"use client";
+
 import React, { FC } from "react";
-import { Plan } from "@/types/plan";
 import { Card, CardBody, CardFooter, CardHeader } from "@heroui/card";
 import { Chip } from "@heroui/chip";
 import { TickIcon } from "@/icons";
 import { Divider } from "@heroui/divider";
 import { Skeleton } from "@heroui/skeleton";
+import { usePlan } from "@/hooks/usePlans";
+import { notFound } from "next/navigation";
 
 const OrderSummarySkeleton: FC = () => (
   <Card className="p-4">
@@ -50,11 +53,14 @@ const OrderSummarySkeleton: FC = () => (
   </Card>
 );
 
-const OrderSummaryCard: FC<{
-  isPlansLoading: boolean;
-  plan: Plan;
-}> = ({ isPlansLoading, plan }) =>
-  isPlansLoading ? (
+const OrderSummaryCard: FC<{ planId: number }> = ({ planId }) => {
+  const { isPlansLoading, plan } = usePlan(planId);
+
+  if (!isPlansLoading && !plan) {
+    notFound();
+  }
+
+  return isPlansLoading ? (
     <OrderSummarySkeleton />
   ) : (
     <Card className="p-4">
@@ -64,24 +70,24 @@ const OrderSummaryCard: FC<{
       <CardBody className="gap-4">
         <div className="bg-primary-50 text-primary text-base border border-primary rounded-xl p-4 flex flex-col gap-2">
           <div className="flex items-center justify-between gap-2">
-            <span className="font-semibold">{plan.name}</span>
-            {plan.is_best_deal && (
+            <span className="font-semibold">{plan?.name}</span>
+            {plan?.is_best_deal && (
               <Chip color="primary" size="sm">
                 Best Value
               </Chip>
             )}
           </div>
           <p>
-            {plan.duration}{" "}
-            {plan.duration_unit + (plan.duration > 1 ? "s" : "")} of premium VPN
-            service
+            {plan?.duration}{" "}
+            {plan?.duration_unit + (plan ? (plan.duration > 1 ? "s" : "") : "")}{" "}
+            of premium VPN service
           </p>
 
-          <h1 className="text-2xl font-bold">${plan.price}</h1>
+          <h1 className="text-2xl font-bold">${plan?.price}</h1>
         </div>
 
         <ul className="flex flex-col gap-2">
-          {plan.description.split(",").map((desc, index) => (
+          {plan?.description.split(",").map((desc, index) => (
             <li key={desc + index} className="flex gap-2">
               <TickIcon className="text-primary size-5" />
               <span className="text-default-500 text-base font-medium">
@@ -95,7 +101,7 @@ const OrderSummaryCard: FC<{
 
         <div className="text-sm flex items-center justify-between">
           <span>Sub total</span>
-          <span>${plan.price}</span>
+          <span>${plan?.price}</span>
         </div>
         <div className="text-sm flex items-center justify-between">
           <span>Discount</span>
@@ -106,9 +112,10 @@ const OrderSummaryCard: FC<{
       </CardBody>
       <CardFooter className="text-base font-semibold justify-between">
         <span>Total</span>
-        <span className="text-primary">${plan.price}</span>
+        <span className="text-primary">${plan?.price}</span>
       </CardFooter>
     </Card>
   );
+};
 
 export default OrderSummaryCard;

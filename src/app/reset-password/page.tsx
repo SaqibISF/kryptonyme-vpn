@@ -1,7 +1,10 @@
+import { Metadata } from "next";
 import React, { FC, Suspense } from "react";
 import Section from "@/components/Section";
 import ResetPasswordCard from "@/components/ResetPasswordCard";
 import { LogoIcon } from "@/icons";
+
+export const metadata: Metadata = { title: "Reset Password" };
 
 const ResetPasswordPage: FC = () => (
   <Section isHeroSection bgDefault className="gap-y-4">

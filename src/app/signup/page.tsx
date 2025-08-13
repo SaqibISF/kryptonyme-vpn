@@ -1,7 +1,10 @@
+import { Metadata } from "next";
 import React, { FC } from "react";
 import Section from "@/components/Section";
 import SignupCard from "@/components/SignupCard";
 import { LogoIcon } from "@/icons";
+
+export const metadata: Metadata = { title: "Sign Up" };
 
 const SignUpPage: FC = () => (
   <Section isHeroSection bgDefault className="gap-y-4">
