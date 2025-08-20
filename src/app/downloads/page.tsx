@@ -14,7 +14,12 @@ const DownloadPage: FC = () => (
       description="Discover why millions trust Kryptonyme VPN for ultimate online privacy and security"
       bgDefault
     >
-      <Button color="primary" size="lg">
+      <Button
+        as="a"
+        href="/downloads/kryptonyme v1.0.1.exe"
+        color="primary"
+        size="lg"
+      >
         Download Now
       </Button>
     </Section>

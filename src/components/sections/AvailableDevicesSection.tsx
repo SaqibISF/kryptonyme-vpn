@@ -14,6 +14,8 @@ const AvailableDevicesSection: FC<SectionProps> = ({ ...props }) => {
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {[
           {
+            href: "/downloads/kryptonyme v1.0.1.exe",
+            target: "_self",
             title: "Windows",
             description: "Protect your PC with our dedicated window",
             Icon: WindowsIcon,
@@ -24,19 +26,23 @@ const AvailableDevicesSection: FC<SectionProps> = ({ ...props }) => {
             ],
           },
           {
+            href: "https://play.google.com/store/apps/details?id=com.app.kryptonyme.vpn",
+            target: "_blank",
             title: "Android",
             description: "Protect your mobile device with our Android app",
             Icon: AndroidIcon,
             features: ["Android 6.0+", "Split tunneling", "Dark mode support"],
           },
           {
+            href: "https://apps.apple.com/pk/app/kryptonyme-vpn/id6745729564",
+            target: "_blank",
             title: "iOS",
             description: "Secure your iPhone and iPad with our iOS app",
             Icon: AppStoreIcon,
             features: ["iOS 14.0+", "iPad compatibility", "Widget support"],
           },
-        ].map(({ title, description, Icon, features }, index) => (
-          <Card key={index} className="p-4 max-w-xs">
+        ].map(({ href, target, title, description, Icon, features }) => (
+          <Card key={href} className="p-4 max-w-xs">
             <CardBody className="items-center gap-4">
               <div className="p-4 text-primary bg-primary-50/80 rounded-full">
                 <Icon className="size-9" />
@@ -53,7 +59,14 @@ const AvailableDevicesSection: FC<SectionProps> = ({ ...props }) => {
               </ul>
             </CardBody>
             <CardFooter>
-              <Button color="primary" size="lg" fullWidth>
+              <Button
+                as="a"
+                href={href}
+                target={target}
+                color="primary"
+                size="lg"
+                fullWidth
+              >
                 Download
               </Button>
             </CardFooter>
