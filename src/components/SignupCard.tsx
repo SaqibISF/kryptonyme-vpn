@@ -9,16 +9,16 @@ import {
   CardBody,
   CardFooter,
   CardHeader,
-  Divider,
+  // Divider,
   Link as HeroLink,
 } from "@heroui/react";
 import Input from "./ui/Input";
 import Link from "next/link";
-import { DASHBOARD_PAGE_PATH, LOGIN_PAGE_PATH } from "@/lib/pathnames";
+import { /*DASHBOARD_PAGE_PATH,*/ LOGIN_PAGE_PATH } from "@/lib/pathnames";
 import {
-  AppleICon,
+  // AppleICon,
   EnvelopeIcon,
-  GoogleIcon,
+  // GoogleIcon,
   LockIcon,
   UserIcon,
 } from "@/icons";
@@ -34,7 +34,7 @@ import axios, { AxiosError } from "axios";
 import { SIGNUP_ROUTE } from "@/lib/constants";
 import { User } from "next-auth";
 import { cn } from "@/lib/utils";
-import { signIn } from "next-auth/react";
+// import { signIn } from "next-auth/react";
 
 const SignupCard: FC = () => {
   const [successMessage, setSuccessMessage] = useState<string>("");
@@ -103,17 +103,17 @@ const SignupCard: FC = () => {
     }
   };
 
-  const handleGoogleSignin = async () => {
-    await signIn("google", {
-      callbackUrl: DASHBOARD_PAGE_PATH,
-    });
-  };
+  // const handleGoogleSignin = async () => {
+  //   await signIn("google", {
+  //     callbackUrl: DASHBOARD_PAGE_PATH,
+  //   });
+  // };
 
-  const handleAppleSignin = async () => {
-    await signIn("apple", {
-      callbackUrl: DASHBOARD_PAGE_PATH,
-    });
-  };
+  // const handleAppleSignin = async () => {
+  //   await signIn("apple", {
+  //     callbackUrl: DASHBOARD_PAGE_PATH,
+  //   });
+  // };
 
   return (
     <Card
@@ -185,7 +185,7 @@ const SignupCard: FC = () => {
           Sign Up
         </Button>
 
-        <div className="w-full flex items-center gap-2">
+        {/* <div className="w-full flex items-center gap-2">
           <Divider className="flex-grow w-auto" />
           <span className="text-default-500 text-sm">Or continue with</span>
           <Divider className="flex-grow w-auto" />
@@ -210,7 +210,7 @@ const SignupCard: FC = () => {
           >
             Apple
           </Button>
-        </div>
+        </div> */}
         <p className="text-default-500 text-sm">
           Already have an account?{" "}
           <HeroLink as={Link} href={LOGIN_PAGE_PATH}>

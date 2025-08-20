@@ -10,7 +10,7 @@ import {
   CardFooter,
   CardHeader,
   Checkbox,
-  Divider,
+  // Divider,
   Link as HeroLink,
 } from "@heroui/react";
 import Input from "./ui/Input";
@@ -21,7 +21,7 @@ import {
   RESEND_VERIFICATION_EMAIL_PAGE_PATH,
   SIGNUP_PAGE_PATH,
 } from "@/lib/pathnames";
-import { AppleICon, EnvelopeIcon, GoogleIcon, LockIcon } from "@/icons";
+import { /*AppleICon,*/ EnvelopeIcon, /*GoogleIcon,*/ LockIcon } from "@/icons";
 import { signIn } from "next-auth/react";
 import z from "zod";
 import { emailSchema, passwordSchema } from "@/lib/zod-schemas";
@@ -108,17 +108,17 @@ const LoginCard: FC = () => {
     }
   };
 
-  const handleGoogleSignin = async () => {
-    await signIn("google", {
-      callbackUrl: redirect ? redirect : DASHBOARD_PAGE_PATH,
-    });
-  };
+  // const handleGoogleSignin = async () => {
+  //   await signIn("google", {
+  //     callbackUrl: redirect ? redirect : DASHBOARD_PAGE_PATH,
+  //   });
+  // };
 
-  const handleAppleSignin = async () => {
-    await signIn("apple", {
-      callbackUrl: redirect ? redirect : DASHBOARD_PAGE_PATH,
-    });
-  };
+  // const handleAppleSignin = async () => {
+  //   await signIn("apple", {
+  //     callbackUrl: redirect ? redirect : DASHBOARD_PAGE_PATH,
+  //   });
+  // };
 
   return (
     <Card
@@ -195,7 +195,7 @@ const LoginCard: FC = () => {
           Resend verification email
         </HeroLink>
 
-        <div className="w-full flex items-center gap-2">
+        {/* <div className="w-full flex items-center gap-2">
           <Divider className="flex-grow w-auto" />
           <span className="text-default-500 text-sm">Or continue with</span>
           <Divider className="flex-grow w-auto" />
@@ -220,7 +220,7 @@ const LoginCard: FC = () => {
           >
             Apple
           </Button>
-        </div>
+        </div> */}
         <p className="text-default-500 text-sm">
           Don&apos;t have an account?{" "}
           <HeroLink as={Link} href={SIGNUP_PAGE_PATH}>
