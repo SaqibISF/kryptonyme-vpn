@@ -4,6 +4,7 @@ import Section from "@/components/Section";
 import { Button } from "@heroui/button";
 import AvailableDevicesSection from "@/components/sections/AvailableDevicesSection";
 import FAQSection from "@/components/sections/FAQSection";
+import { DOWNLOAD_FOR_WINDOWS } from "../../lib/download-links";
 
 export const metadata: Metadata = { title: "Downloads" };
 
@@ -16,7 +17,7 @@ const DownloadPage: FC = () => (
     >
       <Button
         as="a"
-        href="/downloads/kryptonyme v1.0.1.exe"
+        href={DOWNLOAD_FOR_WINDOWS}
         color="primary"
         size="lg"
       >
